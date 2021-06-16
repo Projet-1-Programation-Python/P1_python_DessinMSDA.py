@@ -1,4 +1,6 @@
 import dessinMSDA as d
+# Ceci est un implementation de codes qui perpet de dessiner une maison avec la documentation de turtle 
+# Il a ete concu a partir de differents figures geometrique ex: Carrer,Rectangle,Triangle ect.....
 import turtle
 turtle.shape("blank")
 d.dessin_Carre(100)
