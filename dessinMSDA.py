@@ -1,6 +1,7 @@
 # Importer l'ensemble de fonctions du module turtle
 
-from turtle import * ;
+from turtle import *
+import turtle ;
 
 # Créer une première fonction permettant de dessiner un cercle de rayon donné
 
@@ -47,10 +48,10 @@ def dessin_Carre(a):
     Résultats : Un carré de coté a
     Hypothèses : a > 0 
     '''
-    t = Turtle()
+    
     for i in range(4): 
-        t.forward(a) 
-        t.left(90)
+        turtle.forward(a) 
+        turtle.left(90)
     
 
 # Créer une fonction permettant de dessiner un triangle de coté donné
@@ -66,10 +67,10 @@ def dessin_Triangle(a):
     Résultats : Un triangle de coté a
     Hypothèses : a > 0 
     '''
-    t = Turtle()
+    
     for i in range(3):
-        t.forward(a)
-        t.left(120)
+        turtle.forward(a)
+        turtle.left(120)
    
 
 # Créer une fonction permettant de dessiner un rectangle de dimensions données
@@ -85,7 +86,7 @@ def dessin_Rectangle(a,b):
     Résultats : Un rectangle de dimensions a et b 
     Hypothèses : a > 0 ; b > 0
     '''
-    t = Turtle()
+    
     for i in range(2):
         forward(a)
         left(90)
@@ -136,6 +137,36 @@ def dessin_Trapeze(base,angle,hauteur):
         forward(slope)
         left(angle - 180)
 
+#Créer un trapèze droit 
+def dessin_Trapeze_droite(top,angle,hauteur):
+        '''
+        Objectifs : Dessiner un trapèse droit
+        Méthode : Usage de formules trigonométrique ainsi que les fonction foraward et left de Turtle
+        Besoins : top, angle, hauteur
+        Connus : -
+        Entrées : top, angle, hauteur
+        Sorties : -
+        Résultats : Un trapèze de paramètres prédéfinis
+        Hypothèses : top > 0, 0 < angle < 180 , hauteur > 0
+        '''
+   
+        assert 0 < angle < 180
+        import math
+        slope = hauteur / math.sin(math.radians(angle))
+        base = top - 2 * (hauteur / math.tan(math.radians(angle)))
+
+        forward(base)
+        left(180 - angle)
+        forward(slope)
+        left(angle)
+        forward(top)
+        left(angle)
+        forward(slope)
+        left(angle - 180)
+
+
+
+
 def dessin_losange(a):
     '''
     Objectifs : Dessiner un losange 
@@ -165,3 +196,7 @@ def dessin_Ellipse(rayon):
     for i in range(2):
         circle(rayon,90)
         circle(rayon//2,90)
+    
+
+
+
